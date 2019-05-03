@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovaChildBlock : MonoBehaviour
+public class MoveChildBlock : MonoBehaviour
 {
     [HideInInspector]
      public bool isMove;
@@ -51,17 +51,21 @@ public class MovaChildBlock : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
         {
-            moveObj = hit.collider.gameObject;
-
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Top") && moveObj.GetComponent<ColliderCompare>()==null)
+            
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Top") )
             {
-                //移動前のポジションを保存
-                beforeMovePosition = moveObj.transform.position;
+                moveObj = hit.collider.gameObject;
 
-                //コライダーの大きさ比較用クラスをくっつける
-                hit.collider.gameObject.AddComponent<ColliderCompare>();
+                if(moveObj.GetComponent<ColliderCompare>() == null)
+                {
+                    //移動前のポジションを保存
+                    beforeMovePosition = moveObj.transform.position;
 
-                isMove = true;         
+                    //コライダーの大きさ比較用クラスをくっつける
+                    hit.collider.gameObject.AddComponent<ColliderCompare>();
+
+                    isMove = true;
+                }
             }
         }
     }

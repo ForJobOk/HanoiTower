@@ -2,11 +2,11 @@
 
 public class RayFromAbove : MonoBehaviour
 {
-    MovaChildBlock movaChildBlock;
+    MoveChildBlock moveChildBlock;
 
      void Start()
     {
-        movaChildBlock = FindObjectOfType<MovaChildBlock>();
+        moveChildBlock = FindObjectOfType<MoveChildBlock>();
     }
 
     void Update()
@@ -30,7 +30,7 @@ public class RayFromAbove : MonoBehaviour
                 hit.collider.gameObject.layer = LayerMask.NameToLayer("Top");
             }
             
-            if(hit.collider.gameObject.name != this.gameObject.name && movaChildBlock.isMove == false)
+            if(hit.collider.gameObject.name != this.gameObject.name && moveChildBlock.isMove == false)
             {
                 this.gameObject.layer = LayerMask.NameToLayer("Default");
             }

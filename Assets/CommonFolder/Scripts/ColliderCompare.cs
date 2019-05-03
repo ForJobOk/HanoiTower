@@ -2,11 +2,11 @@
 
 public class ColliderCompare : MonoBehaviour
 {
-    MovaChildBlock movaChildBlock;
+    MoveChildBlock moveChildBlock;
 
     void Start()
     {
-        movaChildBlock = FindObjectOfType<MovaChildBlock>();
+        moveChildBlock = FindObjectOfType<MoveChildBlock>();
     }
 
     //ブロック同士の衝突時にルール通りの移動か判定する
@@ -22,8 +22,8 @@ public class ColliderCompare : MonoBehaviour
         if (otherObjBoxCollider.size.x > thisCollider.size.x)
         {
             Vector3 otherObjPos = otherObj.transform.position;
-            movaChildBlock.beforeMovePosition = new Vector3(otherObjPos.x, otherObjPos.y+ thisCollider.size.y*3, otherObjPos.z);
-            movaChildBlock.isMove = false;
+            moveChildBlock.beforeMovePosition = new Vector3(otherObjPos.x, otherObjPos.y+ thisCollider.size.y*3, otherObjPos.z);
+            moveChildBlock.isMove = false;
         }
     }
 }
